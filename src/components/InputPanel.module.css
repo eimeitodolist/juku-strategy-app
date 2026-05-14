@@ -1,0 +1,210 @@
+.panel {
+  background: white;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  padding: 24px 24px 0;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sectionLabel::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.formGroup { margin-bottom: 16px; }
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--cream);
+  transition: all 0.2s;
+  outline: none;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--navy);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(15,31,61,0.08);
+}
+.textarea { resize: vertical; min-height: 90px; }
+
+/* Radio */
+.radioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.radioCard { position: relative; cursor: pointer; }
+.radioCard input { position: absolute; opacity: 0; width: 0; height: 0; }
+.radioLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--cream);
+  transition: all 0.2s;
+  cursor: pointer;
+  text-align: center;
+}
+.radioIcon { font-size: 22px; }
+.radioCard input:checked + .radioLabel {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: white;
+}
+
+/* Checkbox */
+.checkGroup { display: flex; gap: 16px; }
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Student table */
+.hint { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th {
+  background: var(--navy);
+  color: white;
+  padding: 8px 10px;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+.table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.table tr:nth-child(even) td { background: var(--cream); }
+
+.numInput {
+  width: 60px;
+  padding: 4px 6px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+  background: white;
+  outline: none;
+}
+.numInput:focus { border-color: var(--navy); }
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.removeBtn:hover { color: var(--red); background: #fdf2f0; }
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px dashed var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  width: 100%;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.addBtn:hover { border-color: var(--navy); color: var(--navy); }
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+/* Button */
+.btnWrapper { padding: 20px 24px 28px; margin-top: auto; }
+
+.analyzeBtn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 20px rgba(15,31,61,0.3);
+  transition: all 0.3s;
+}
+.analyzeBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(15,31,61,0.4);
+}
+.analyzeBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
