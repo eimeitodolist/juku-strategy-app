@@ -82,12 +82,13 @@ ${studentSummary}
 出力はマークダウン形式。具体的・実践的な内容にし、一般論は避けること。数字や固有名詞を積極的に使うこと。`;
 
     // Use web_search tool for real market data
-    const response = await client.messages.create({
+    const response = await client.beta.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 4000,
+      betas: ["web-search-2025-03-05"],
       tools: [
         {
-          type: "web_search_20250305" as const,
+          type: "web_search_20250305",
           name: "web_search",
         },
       ],
